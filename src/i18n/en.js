@@ -33,6 +33,10 @@ export default {
     connecting: "Connecting",
     open: "Connected",
   },
+  toggleSelect: {
+    all: "Select all",
+    none: "Deselect all",
+  },
   about: {
     title: "About",
     description: "Evolution Manager makes it easy to manage your APIs with an intuitive interface. It was created by independent developers, focusing on improving the user experience and administration of API functionalities.",
@@ -43,6 +47,13 @@ export default {
       https: "Due to all processing being done in the browser, it is necessary to access the Evolution API server through a secure connection (HTTPS)."
     },
     version: "Version",
+  },
+  createInstance: {
+    title: "Create instance",
+    name: "Instance name",
+    configInfo: "The WebHook, WebSocket, RabbitMQ, Chatwoot, and Typebot can be configured after creating the instance.",
+    integration: "Integration",
+    number: "Telephone number identifier",
   },
   contribute: {
     title: "Contribute",
@@ -61,7 +72,9 @@ export default {
   },
   connectPhone: {
     title: "Phone not connected",
-    apiGenericError: "Could not load QR Code, if the error persists, restart the API and try again."
+    apiGenericError: "Could not load QR Code, if the error persists, restart the API and try again.",
+    qr: "QR Code",
+    code: "Código",
   },
   options: {
     title: "Behavior",
@@ -71,6 +84,7 @@ export default {
     alwaysOnline: "Always online",
     readMessages: "Mark messages as read",
     readStatus: "Mark status as seen",
+    syncfullhistory: "sync full history",
   },
   webhook: {
     byEvents: "Webhook by events",
@@ -82,6 +96,7 @@ export default {
   chatwoot: {
     account_id: "Account ID",
     token: "Account Token",
+    dayslimitimportmessages: "Days limit to import messages",
     signMsg: "Sign messages",
     signMsgHelp: "Adds the agent name at the first line of the message",
     signDelimiter: "Signature delimiter",
@@ -92,6 +107,10 @@ export default {
     conversationPendingHelp: "Starts the conversation as pending instead of open",
     autoCreate: "Create Inbox",
     autoCreateHelp: "Creates the inbox in Chatwoot if it doesn't exist",
+    importcontacts: "Import contacts",
+    importcontactsHelp: "Import contacts to Chatwoot",
+    importmessages: "Import messages",
+    importmessagesHelp: "Import message history messages to Chatwoot",
     config: {
       btn: "How to configure Chatwoot?",
       title: "How to configure Chatwoot inbox?",
@@ -117,6 +136,7 @@ export default {
     delayMessageHelp: "Typing simulation time",
     unknownMessage: "Unknown message format",
     unknownMessageHelp: "Message sent when the message format is not recognized",
+    unknownMessagePlaceholder: "Leave blank to not send message",
     listeningFromMe: "Listen to messages sent by me",
     listeningFromMeHelp: "Sends the messages sent by you to the Typebot flow",
     session: {
