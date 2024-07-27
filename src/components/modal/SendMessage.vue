@@ -228,12 +228,14 @@ export default {
       }
     },
     addAndSelect() {
-      this.contacts.push({
-        title: this.search,
-        value: this.search,
+      this.contacts.push(...this.search.split(';').map(number => ({
+        title: number,
+        value: number,
         photo: null,
         isGroup: false,
-      });
+      })));
+      this.numbers.push(...this.search.split(';'));
+      this.search = '';
       this.$nextTick(() => {
         this.message.number = this.search;
       });
