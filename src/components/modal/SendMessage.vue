@@ -190,19 +190,34 @@ export default {
 
         var messagesId = [];
         const messageConfig = this.message;
+        const errors = [];
 
         messageConfig.options.delay = parseInt(messageConfig.options.delay);
 
         for (const number of this.numbers) {
-          const r = await instanceController.chat.sendMessage(
-            this.instance.instance.instanceName,
-            {
-              ...messageConfig,
-              number,
-            }
-          );
+          try {
+            const r = await instanceController.chat.sendMessage(
+              this.instance.instance.instanceName,
+              {
+                ...messageConfig,
+                number,
+              }
+            );
 
-          if (r.key?.id) messagesId.push(r.key?.id);
+            if (r.key?.id) messagesId.push(r.key?.id);
+          } catch(error) {
+            errors.push(error.message?.message || error.message || error);
+          }
+        }
+
+        if(errors.length) {
+          this.error = errors.reduce((acc, curr) => {
+            if(typeof curr !== 'string'){
+              return `${acc}\n${JSON.stringify(curr)}`;
+            }
+
+            return `${acc}\n${curr}`;
+          }, '');
         }
 
         this.success = {
